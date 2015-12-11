@@ -10,22 +10,15 @@
       </button>
       <%= link_to "Scraper", root_path, class: "navbar-brand" %>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#">Link</a>
-        </li>
-      </ul>
-      <!--
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      -->
+      <% if current_user %>
+        <%= form_tag new_movie_path, :method => 'get', class: "navbar-form navbar-left" do%>
+          <%= text_field_tag :search, params[:movie_url], class: "form-control", placeholder: "Rotten URL" %>
+          <%= submit_tag "Scrape", :name => nil, class: "btn btn-default" %>
+          <%= link_to "Or New Movie", new_movie_path, class: "btn btn-default" %>
+        <% end %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to "settings", edit_user_registration_path %></li>
