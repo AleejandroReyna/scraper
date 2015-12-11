@@ -5,7 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Hotness</th>
-      <th>Image url</th>
+      <th>Image</th>
       <th>Synopsis</th>
       <th>Rating</th>
       <th>Genre</th>
@@ -21,7 +21,7 @@
       <tr>
         <td><%= movie.title %></td>
         <td><%= movie.hotness %></td>
-        <td><%= movie.image_url %></td>
+        <td><%= image_tag movie.image_url %></td>
         <td><%= movie.synopsis %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.genre %></td>
@@ -37,5 +37,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Movie', new_movie_path %>
